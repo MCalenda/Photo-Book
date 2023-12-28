@@ -13,7 +13,7 @@ const Photo = ({ photo, toggle, handleDelete }) => {
         <div className="d-flex gap-4 justify-content-center">
           <Button
             color="primary"
-            onClick={() => toggle(photo.contentType, photo.data)}
+            onClick={() => toggle(photo.contentType, photo.data, photo.fileName)}
           >
             Visualizza
           </Button>

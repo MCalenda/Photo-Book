@@ -26,11 +26,13 @@ function App() {
   const [modal, setModal] = useState(false);
   const [modal_ct, setModal_ct] = useState(null);
   const [modal_d, setModal_d] = useState(null);
+  const [modal_name, setModal_name] = useState(null);
 
-  const toggle = (ct, data) => {
+  const toggle = (ct, data, name) => {
     setModal(!modal);
     setModal_ct(ct ? ct : null);
     setModal_d(data ? data : null);
+    setModal_name(name ? name : null);
   };
 
   const fetchData = async () => {
@@ -74,7 +76,7 @@ function App() {
   return (
     <Container fluid className="vh-100 d-flex flex-column p-0">
       <Modal isOpen={modal} toggle={toggle} size="xl" centered={true}>
-        <ModalHeader toggle={toggle}></ModalHeader>
+        <ModalHeader toggle={toggle}>{modal_name}</ModalHeader>
         <ModalBody>
           <CardImg
             src={`data:${modal_ct};base64, ${modal_d}`}
